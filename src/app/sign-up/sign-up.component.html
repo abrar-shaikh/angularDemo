@@ -1,0 +1,99 @@
+<div class="box">
+  <form name="frmSignup" [formGroup]="frmSignup" (ngSubmit)='submit()'>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-7">
+        <label class="col-form-label header"> SignUp </label>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Full Name </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input" formControlName="fullName" placeholder="Enter full name"
+          [ngClass]="{'is-invalid':submitted && f.fullName.errors}">
+        <div *ngIf="submitted && f.fullName.errors" class="lbl-err">
+          <div *ngIf='f.fullName.errors.required' class="lbl-err"> name is required </div>
+          <div *ngIf='f.fullName.errors.pattern' class="lbl-err"> please enter valid name </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Gender </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="radio" value="male" name="gender" formControlName="gender" [ngClass]="{'is-invalid':submitted && f.gender.errors}">
+        &nbsp;
+        <label class="col-form-label lbl">
+          Male </label>&nbsp;&nbsp;&nbsp;
+        <input type="radio" value="female" name="gender" formControlName="gender" [ngClass]="{'is-invalid':submitted && f.gender.errors}">
+        &nbsp;
+        <label class="col-form-label lbl">
+          Female </label>
+        <div *ngIf="submitted && f.gender.errors" class="lbl-err">
+          <div *ngIf='f.gender.errors.required' class="lbl-err"> gender is required </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Email </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input" formControlName="email" placeholder="Enter email id" [ngClass]="{'is-invalid':submitted && f.email.errors}">
+        <div *ngIf="submitted && f.email.errors" class="lbl-err">
+          <div *ngIf='f.email.errors.required' class="lbl-err"> email is required </div>
+          <div *ngIf='f.email.errors.pattern' class="lbl-err"> please enter valid email </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Password </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="password" class="form-control input" formControlName="password" placeholder="Enter password"
+          [ngClass]="{'is-invalid':submitted && f.password.errors}">
+        <div *ngIf="submitted && f.password.errors" class="lbl-err">
+          <div *ngIf='f.password.errors.required ' class="lbl-err"> password is required</div>
+          <div *ngIf='f.password.errors.pattern' class="lbl-err"> please enter valid password. e.g.: Superm@n123
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Confirm Password </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="password" class="form-control input" formControlName="txtConfirmPassword" placeholder="Enter confirm password"
+          [ngClass]="{'is-invalid':submitted}">
+        <div *ngIf="submitted && !match" class="lbl-err">
+          <div *ngIf='frmSignup.controls.txtConfirmPassword.touched  && !match' class="lbl-err"> password & confirm
+            password doesn't match. </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <button type="submit" class="btn">Submit</button>
+      </div>
+      <div class="col-sm-4">
+        <button type="reset" class="btn" (click)="reset()">Reset</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div>
+</div>

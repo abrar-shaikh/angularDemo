@@ -1,0 +1,54 @@
+<div class="box">
+  <form name="frmLogin" [formGroup]="frmLogin" (ngSubmit)='submit()'>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-7">
+        <label class="col-form-label header"> Login </label>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Email </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input" formControlName="email" placeholder="Enter email id" 
+        [ngClass]="{'is-invalid':submitted && f.email.errors}">
+        <div *ngIf="submitted && f.email.errors" class="lbl-err">
+            <div *ngIf='f.email.errors.required' class="lbl-err"> email is required </div>
+            <div *ngIf='f.email.errors.pattern' class="lbl-err"> please enter valid email </div>
+          </div>
+      </div>
+     
+    </div>
+
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Password </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="password" class="form-control input" formControlName="password" placeholder="Enter password"
+        [ngClass]="{'is-invalid':submitted && f.password.errors}">
+        <div *ngIf="submitted && f.password.errors" class="lbl-err">
+            <div *ngIf='f.password.errors.required' class="lbl-err"> password is required </div>
+            <div *ngIf='f.password.errors.pattern' class="lbl-err"> please enter valid password. e.g.: Superm@n123 </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <button type="submit" class="btn">Submit</button>
+      </div>
+      <div class="col-sm-4">
+        <button type="reset" class="btn" (click)="reset()">Reset</button>
+        <h5 class="title">Already Registered?? <a routerLink='/signUp'> signUp</a></h5>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div>
+</div>
