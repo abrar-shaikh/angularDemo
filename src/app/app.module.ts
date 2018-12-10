@@ -9,11 +9,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ApisService } from './apis.service'
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    HomepageComponent
+    HomepageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-bottom-full-width',
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
 }),
     BrowserAnimationsModule

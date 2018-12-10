@@ -9,6 +9,7 @@
     padding-top: 6px;
     font-size: 17px;
     color: ivory;
+    font-weight: bold;
     font-family: 'Gloria Hallelujah', cursive;
 }
 .input{
@@ -27,7 +28,6 @@
 }
 .header{
     font-size: 34px;
-    padding-left: 108px;
     color: ivory;
     font-family: 'Gloria Hallelujah', cursive;
 }
@@ -66,3 +66,5 @@ h5
     font-size: 15px;
     font-family: 'Gloria Hallelujah', cursive;
 }
+.form-control{
+    padding: 0px 12px;}

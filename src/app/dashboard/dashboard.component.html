@@ -1,0 +1,38 @@
+<div class="box">
+
+
+  <!-- <form> -->
+
+    <div class="row divParent">
+      <div class="col-sm-7">
+        <label class="col-form-label header"> Heart of my kingdom </label>
+        <table name="tblUsers">
+          <thead>
+            <tr>
+              <th class="lbl"> Sr. No. </th>
+              <th class="lbl"> Name </th>
+              <th class="lbl"> Email </th>
+              <th class="lbl"> Role </th>
+              <th class="lbl">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let data of users;  let i = index">
+              <th scope="row" class="lbl">{{i+1}}</th>
+              <td class="lbl">{{data.fullName}}</td>
+              <td class="lbl">{{data.email}}</td>
+              <td class="lbl">{{data.role}}</td>
+              <td>
+                <button class="btn glyphicon glyphicon-pencil glyphi" data-toggle="m-tooltip" title="Edit" (click)="editUser()" [disabled]="!data.isEditable" ></button>
+                <button class="btn glyphicon glyphicon-remove glyphi" data-toggle="m-tooltip" title="Delete" (click)="deleteUser(data._id)" [disabled]="!data.isDeletable" > </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <!-- </form> -->
+</div>
+    

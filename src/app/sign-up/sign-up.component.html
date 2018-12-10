@@ -3,7 +3,7 @@
 
     <div class="row form-group divParent">
       <div class="col-sm-7">
-        <label class="col-form-label header"> SignUp </label>
+        <label class="col-form-label header"> Enterene of my kingdom </label>
       </div>
     </div>
 
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="row form-group divParent">
+    <!-- <div class="row form-group divParent">
       <div class="col-sm-3">
         <label class="col-form-label lbl"> Gender </label>
       </div>
@@ -36,6 +36,24 @@
           Female </label>
         <div *ngIf="submitted && f.gender.errors" class="lbl-err">
           <div *ngIf='f.gender.errors.required' class="lbl-err"> gender is required </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Role </label>
+      </div>
+      <div class="col-sm-4">
+        <select class='form-control input' formControlName="role">
+            <option value="" selected disabled hidden>Select role</option>
+          <option value="King" class="input">King</option>
+          <option value='Queen' class="input">Queen</option>
+          <option value='Boys' class="input">Boys</option>
+          <option value='Girls' class="input">Girls</option>
+        </select>
+        <div *ngIf="submitted && f.role.errors" class="lbl-err">
+          <div *ngIf='f.role.errors.required' class="lbl-err"> role is required </div>
         </div>
       </div>
     </div>

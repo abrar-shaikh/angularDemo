@@ -20,7 +20,8 @@ export class SignUpComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-z])(?=.*[0-9])(?=.*[@#$_-])\S{8,20}$/)]],
       txtConfirmPassword: [''],
-      gender: ['', Validators.required],
+      role: ['', Validators.required],
+      // gender: ['', Validators.required],
     })
   }
 
@@ -42,7 +43,7 @@ export class SignUpComponent implements OnInit {
     else {
       this.match = true
       this.api.registerUser(this.frmSignup.value).subscribe(data=>{
-        if(data['code'] == 201){
+        if(data['code'] == 200){
           this.toastr.success(data['message']);
           this.router.navigate([''])
 

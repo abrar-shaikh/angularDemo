@@ -11,13 +11,22 @@ const httpOptions={
 export class ApisService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = "http://localhost:8009/"
+  baseUrl: string = "http://localhost:8080/"
 
   registerUser(user: any) {
-    return this.http.post(this.baseUrl+'signUp',JSON.stringify(user),httpOptions)
+    return this.http.post(this.baseUrl+'signup',JSON.stringify(user),httpOptions)
   }
 
   authenticateUser(user:any){
     return this.http.post(this.baseUrl+'login',JSON.stringify(user),httpOptions)
+  }
+
+  getUsers(id:any){
+    return this.http.get(this.baseUrl+`view/${id}`,httpOptions)
+  }
+
+  deleteUser(id:any){
+    console.log("local",localStorage.getItem('id'))
+    return this.http.post(this.baseUrl+`deleteUser/${id}/${localStorage.getItem('id')}`,httpOptions)
   }
 }

@@ -25,9 +25,11 @@
 .form-group{
     margin-top: 15px
 }
+.form-control{
+    padding: 0px 12px;
+}
 .header{
     font-size: 34px;
-    padding-left: 108px;
     color: ivory;
     font-family: 'Gloria Hallelujah', cursive;
 }

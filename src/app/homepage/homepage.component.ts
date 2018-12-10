@@ -34,19 +34,18 @@ export class HomepageComponent implements OnInit {
       return;
     }
     else {
-      console.log('valid')
       this.api.authenticateUser(this.frmLogin.value).subscribe(data => {
         if (data['code'] == 200) {
           this.toastr.success(data['message'])
+          localStorage.setItem('id',data['result']['_id'])
+          this.router.navigate(['users'])
         } else {
           this.toastr.error(data['message'])
         }
       })
-      //this.router.navigate[()]
     }
   }
   reset() {
-    console.log('reset')
     this.submitted = false
   }
 }
