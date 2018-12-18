@@ -29,4 +29,7 @@ export class ApisService {
     console.log("local",localStorage.getItem('id'))
     return this.http.post(this.baseUrl+`deleteUser/${id}/${localStorage.getItem('id')}`,httpOptions)
   }
+  updateUser(user:any,id:any){
+    return this.http.post(this.baseUrl+`update/${user._id}/${localStorage.getItem('id')}`,JSON.stringify(user),httpOptions)
+  }
 }

@@ -1,0 +1,18 @@
+.lbl{
+    font-size: 20px;
+    font-weight: bold;
+    color: ivory;
+    font-family: 'Gloria Hallelujah', cursive;
+    background: none;
+    border: none;
+    padding-top: 10px;
+    text-decoration: underline
+}
+.lbl:hover{
+    font-size: 20px;
+    font-weight: bold;
+    color: ivory;
+    font-family: 'Gloria Hallelujah', cursive;
+    background: none;
+    text-decoration: underline
+}

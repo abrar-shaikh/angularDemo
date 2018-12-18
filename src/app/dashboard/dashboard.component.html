@@ -1,8 +1,10 @@
-<div class="box">
+<app-headers></app-headers>
+
+<body>
+  <div class="box">
 
 
-  <!-- <form> -->
-
+    <!-- <form> -->
     <div class="row divParent">
       <div class="col-sm-7">
         <label class="col-form-label header"> Heart of my kingdom </label>
@@ -24,8 +26,10 @@
               <td class="lbl">{{data.email}}</td>
               <td class="lbl">{{data.role}}</td>
               <td>
-                <button class="btn glyphicon glyphicon-pencil glyphi" data-toggle="m-tooltip" title="Edit" (click)="editUser()" [disabled]="!data.isEditable" ></button>
-                <button class="btn glyphicon glyphicon-remove glyphi" data-toggle="m-tooltip" title="Delete" (click)="deleteUser(data._id)" [disabled]="!data.isDeletable" > </button>
+                <button class="btn glyphicon glyphicon-pencil glyphi" data-toggle="m-tooltip" title="Edit" [disabled]="!data.isEditable"
+                  (click)="open(data)"></button>
+                <button class="btn glyphicon glyphicon-remove glyphi" data-toggle="m-tooltip" title="Delete" (click)="deleteUser(data._id)"
+                  [disabled]="!data.isDeletable"> </button>
               </td>
             </tr>
 
@@ -33,6 +37,54 @@
         </table>
       </div>
     </div>
-  <!-- </form> -->
-</div>
-    
+    <!-- </form> -->
+
+
+
+    <div class="backdrop" [ngStyle]="{'display':display}">
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="close()"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Change Identity</h4>
+          </div>
+          <div class="modal-body">
+
+            <form name="frmEditUser" [formGroup]="frmEditUser">
+              <div class="row form-group divParent">
+                <div class="col-sm-3">
+                  <label class="col-form-label"> Full Name </label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control input" formControlName="fullName" [ngClass]="{'is-invalid':submitted && f.fullName.errors}" value={{fullName}}>
+                  <div *ngIf="submitted && f.fullName.errors" class="lbl-err">
+                    <div *ngIf='f.fullName.errors.required' class="lbl-err"> name is required </div>
+                    <div *ngIf='f.fullName.errors.pattern' class="lbl-err"> please enter valid name </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row form-group divParent">
+                <div class="col-sm-3">
+                  <label class="col-form-label"> Email </label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control input" formControlName="email" [ngClass]="{'is-invalid':submitted && f.email.errors}" value={{email}}>
+                  <div *ngIf="submitted && f.email.errors" class="lbl-err">
+                    <div *ngIf='f.email.errors.required' class="lbl-err"> email is required </div>
+                    <div *ngIf='f.email.errors.pattern' class="lbl-err"> please enter valid email </div>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" (click)="update(id)">Save</button>
+            <button type="button" class="btn btn-default" (click)="close()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>

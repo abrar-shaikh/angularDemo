@@ -1,0 +1,51 @@
+<app-headers></app-headers>
+<div class="box">
+  <form name="frmEditProfile" [formGroup]="frmEditProfile" (ngSubmit)='submit()'>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-7">
+        <label class="col-form-label header"> Change your identity </label>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Full Name </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input" formControlName="fullName"
+          [ngClass]="{'is-invalid':submitted && f.fullName.errors}">
+        <div *ngIf="submitted && f.fullName.errors" class="lbl-err">
+          <div *ngIf='f.fullName.errors.required' class="lbl-err"> name is required </div>
+          <div *ngIf='f.fullName.errors.pattern' class="lbl-err"> please enter valid name </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <label class="col-form-label lbl"> Email </label>
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input" formControlName="email" [ngClass]="{'is-invalid':submitted && f.email.errors}">
+        <div *ngIf="submitted && f.email.errors" class="lbl-err">
+          <div *ngIf='f.email.errors.required' class="lbl-err"> email is required </div>
+          <div *ngIf='f.email.errors.pattern' class="lbl-err"> please enter valid email </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group divParent">
+      <div class="col-sm-3">
+        <button type="submit" class="btn">Save</button>
+      </div>
+      <div class="col-sm-4">
+        <button type="reset" class="btn" (click)="reset()">Reset</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div>
+</div>

@@ -38,6 +38,8 @@ export class HomepageComponent implements OnInit {
         if (data['code'] == 200) {
           this.toastr.success(data['message'])
           localStorage.setItem('id',data['result']['_id'])
+          localStorage.setItem('name',data['result']['fullName'])
+          localStorage.setItem('email',data['result']['email'])
           this.router.navigate(['users'])
         } else {
           this.toastr.error(data['message'])

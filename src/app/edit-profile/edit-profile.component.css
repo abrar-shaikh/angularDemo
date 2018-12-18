@@ -1,0 +1,65 @@
+.frm{
+    text-align: center
+}
+.divParent{
+    padding-left: 32%;
+    padding-top:15px
+}
+.lbl{
+    padding-top: 6px;
+    font-size: 17px;
+    color: ivory;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.input{
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.box{
+    box-align: center;
+    height: 60%;
+    width: 60%;
+    align-self: auto;
+    margin-left: 27%;
+    margin-top: 10%
+}
+.form-group{
+    margin-top: 15px
+}
+.form-control{
+    padding: 0px 12px;
+}
+.header{
+    font-size: 34px;
+    color: ivory;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.btn{
+    width:100px;
+    font-family: 'Gloria Hallelujah', cursive;
+    background-color: ivory;
+    opacity: 0.5;
+}
+.btn:hover{
+    width:100px;
+    font-family: 'Gloria Hallelujah', cursive;
+    background-color: ivory;
+    opacity: 1.0;
+}
+.title{
+    color: ivory;
+    text-align: center
+}
+h5
+{
+    font-size: 16px;
+    font-family: 'Gloria Hallelujah', cursive;
+
+}
+.lbl-err
+{
+    margin-top: 10px;
+    color: black;
+    font-size: 15px;
+    font-family: 'Gloria Hallelujah', cursive;
+}

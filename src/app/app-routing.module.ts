@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -15,7 +17,17 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'editProfile',
+    component: EditProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    component: HomepageComponent
   }
 ];
 
